@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="Z1BjZLeAqUOUq0Ujai4rGg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="opensource-demo.orangehrmlive.com/web/index.php/dashboard/index" CVScreenId="e1e6d4b9-39d3-4208-ad01-be545b5c75ff" CvTextArea="387, 256, 88, 16" CvTextArgument="Dashboard" CvType="Text" DesignTimeRectangle="389, 254, 88, 24" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='H6' /&gt;" Guid="af16f760-8e3b-45da-bbe0-0de8829e1790" ScopeSelectorArgument="&lt;html app='chrome.exe' title='OrangeHRM' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="dd1df4894b06a3818002fc13fd3b8ac2.jpg" xmlns="">0lvAB5ks8P0eJtcOlKjA8yw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

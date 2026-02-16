@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="0SNUoaytFU-pyzOw69zjTA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="opensource-demo.orangehrmlive.com/web/index.php/dashboard/index" CVScreenId="e1e6d4b9-39d3-4208-ad01-be545b5c75ff" CvTextArea="1665, 257, 153, 15" CvTextArgument="First Name Last Name" CvType="Text" DesignTimeRectangle="1667, 256, 151, 20" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" Guid="5dea16d7-c12f-4a11-824c-eef3f7b9690b" ScopeSelectorArgument="&lt;html app='chrome.exe' title='OrangeHRM' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="8724ffffc02074d34fa163ea5ddcde07.jpg" xmlns="">0IfI0T2OyPEKMFQkJgUSU8A</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">SelectItem</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

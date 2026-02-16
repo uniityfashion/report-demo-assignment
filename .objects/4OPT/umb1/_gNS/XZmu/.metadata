@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Username  Admin",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "XZmu_1DkC0y6qzSu42SYgA",
+  "Reference": "ac3pmRF8SU6nQXlRVwV-PQ/XZmu_1DkC0y6qzSu42SYgA",
+  "ParentRef": "ac3pmRF8SU6nQXlRVwV-PQ/_gNS1xT2wUO7IYObT14_Ug",
+  "Created": "2026-02-16T03:16:43.2349272Z",
+  "Updated": "2026-02-16T03:16:43.2349272Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.26.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.12.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
