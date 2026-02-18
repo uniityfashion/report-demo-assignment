@@ -21672,15 +21672,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\akrao\\.nuget\\packages\\": {}
+    "C:\\Users\\Testing\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Assignment-13",
       "projectName": "Assignment-13",
-      "projectPath": "C:\\Users\\akrao\\OneDrive\\Documents\\UiPath\\Assignment-13\\.local",
-      "packagesPath": "C:\\Users\\akrao\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\akrao\\OneDrive\\Documents\\UiPath\\Assignment-13\\.local",
+      "projectPath": "C:\\Users\\Testing\\8172_16-feb-2026_Assignment-13\\report-demo-assignment\\.local",
+      "packagesPath": "C:\\Users\\Testing\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Testing\\8172_16-feb-2026_Assignment-13\\report-demo-assignment\\.local",
       "UsingMicrosoftNETSdk": false,
       "restoreAuditProperties": {
         "enableAudit": "False"
@@ -21715,7 +21715,7 @@
             "version": "[25.10.26, 25.10.26]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\akrao\\AppData\\Local\\Programs\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Testing\\AppData\\Local\\Programs\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

@@ -1,4 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TestCase2" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="TestCase2_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TestCase2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="IntTestId" Type="OutArgument(x:String)" />
+    <x:Property Name="intSuiteId" Type="OutArgument(x:String)" />
+    <x:Property Name="IntReportId" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>TestCase2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -100,9 +107,11 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TestCase2" sap:VirtualizedContainerService.HintSize="898.8000000000001,2755.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TestCase2" sap:VirtualizedContainerService.HintSize="961,3146" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="intTestId" />
       <Variable x:TypeArguments="x:String" Name="IntSuiteId" />
@@ -114,20 +123,69 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If sap:VirtualizedContainerService.HintSize="486.4,458.4" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">"the value of reportId: "+intReportId</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="488,211" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">
+                <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">intReportId</CSharpReference>
+              </OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">
+                <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">IntReportId</CSharpValue>
+              </InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">
+                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">intSuiteId</CSharpReference>
+              </OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">IntSuiteId</CSharpValue>
+              </InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">
+                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">IntTestId</CSharpReference>
+              </OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">intTestId</CSharpValue>
+              </InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <If sap:VirtualizedContainerService.HintSize="488,459" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
-          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">intReportId == 0 &amp;&amp; Flag</CSharpValue>
+          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">IntReportId == 0 &amp;&amp; Flag</CSharpValue>
         </InArgument>
       </If.Condition>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="416,161.6" sap2010:WorkflowViewState.IdRef="CreateReport_1" ReportName="testCase1 report - present">
+          <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="416,162" sap2010:WorkflowViewState.IdRef="CreateReport_1" ReportName="testCase1 report - present">
             <ra:CreateReport.ReportLocation>
               <InArgument x:TypeArguments="x:String">
                 <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">System.IO.Path.Combine(Environment.CurrentDirectory, "Reports")</CSharpValue>
@@ -142,7 +200,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,94.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,94" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -151,7 +209,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="486.4,117.6" sap2010:WorkflowViewState.IdRef="StartSuite_1" SuiteName="login">
+    <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="488,118" sap2010:WorkflowViewState.IdRef="StartSuite_1" SuiteName="login">
       <ra:StartSuite.ReportId>
         <InArgument x:TypeArguments="x:Int32">
           <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">intReportId</CSharpValue>
@@ -163,7 +221,7 @@
         </OutArgument>
       </ra:StartSuite.suiteId>
     </ra:StartSuite>
-    <ra:StartTest ContinueOnError="{x:Null}" DisplayName="Start Test" sap:VirtualizedContainerService.HintSize="486.4,117.6" sap2010:WorkflowViewState.IdRef="StartTest_1" Priority="Low" TagName="present login" TestDescription="login element test" TestName="login process">
+    <ra:StartTest ContinueOnError="{x:Null}" DisplayName="Start Test" sap:VirtualizedContainerService.HintSize="488,118" sap2010:WorkflowViewState.IdRef="StartTest_1" Priority="Low" TagName="present login" TestDescription="login element test" TestName="login process">
       <ra:StartTest.ReportId>
         <InArgument x:TypeArguments="x:Int32">
           <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">intReportId</CSharpValue>
@@ -180,13 +238,13 @@
         </OutArgument>
       </ra:StartTest.testId>
     </ra:StartTest>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome OrangeHRM" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="486.4,2038.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome OrangeHRM" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="488,2042" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484.8,1844.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="486,1848" sap2010:WorkflowViewState.IdRef="Sequence_7">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="username" />
               <Variable x:TypeArguments="x:String" Name="password" />
@@ -196,7 +254,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NGetText DisplayName="Get Text 'Username  Admin'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="451.2,146.4" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
+            <uix:NGetText DisplayName="Get Text 'Username  Admin'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,147" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="opensource-demo.orangehrmlive.com/web/index.php/auth/login" CVScreenId="913a96ef-b3ce-42b0-8190-8d5b2a70139c" ContentHash="p_a9sos_4U6YPzi6eS-QhA" CvElementArea="472, 502, 609, 120" CvType="InputBox" DesignTimeRectangle="505, 536, 544, 27" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" Guid="32b3d4e5-cc0d-4ada-9458-393e4085bba3" InformativeScreenshot="b7412f06b05b1124a9a872ed6cd3bea0.jpg" Reference="ac3pmRF8SU6nQXlRVwV-PQ/XZmu_1DkC0y6qzSu42SYgA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='OrangeHRM' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NGetText.Target>
@@ -206,11 +264,11 @@
                 </OutArgument>
               </uix:NGetText.TextString>
             </uix:NGetText>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Username'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="451.2,249.6" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Username'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,250" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="opensource-demo.orangehrmlive.com/web/index.php/auth/login" CVScreenId="913a96ef-b3ce-42b0-8190-8d5b2a70139c" ContentHash="LNBWdnUgbUKJhouiSqeRWQ" CvElementArea="473, 671, 609, 59" CvType="InputBox" DesignTimeRectangle="474, 673, 606, 56" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl name='username' tag='INPUT' type='' class='oxd-input oxd-input--focus' placeholder='Username' aaname='' matching:name='fuzzy' fuzzylevel:name='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="7ba07083-16e4-4442-bd96-f7e465a167ec" InformativeScreenshot="c6f4b802ab05ceccd23ff5e02c836d00.jpg" IsResponsive="True" Reference="ac3pmRF8SU6nQXlRVwV-PQ/yphVpBzLyUaGqcW7F_TXSg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='OrangeHRM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target CVScreenId="913a96ef-b3ce-42b0-8190-8d5b2a70139c" CvTextArea="497, 646, 70, 13" CvTextArgument="Username" CvType="Text" DesignTimeRectangle="499, 645, 69, 20" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='oxd-label' aaname='Username' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Username' /&gt;" Guid="cd23b98c-e404-4821-9e03-a929bfb4d407" SearchSteps="FuzzySelector, CV" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -232,11 +290,11 @@
                 </uix:VerifyExecutionTypeIntoOptions>
               </uix:NTypeInto.VerifyOptions>
             </uix:NTypeInto>
-            <uix:NGetText DisplayName="Get Text 'Username : Admin'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="451.2,146.4" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
+            <uix:NGetText DisplayName="Get Text 'Username : Admin'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,147" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="opensource-demo.orangehrmlive.com/web/index.php/auth/login" CVScreenId="913a96ef-b3ce-42b0-8190-8d5b2a70139c" ContentHash="HIRNXlY7P063h5H-_yCHUw" CvElementArea="472, 502, 609, 120" CvType="InputBox" DesignTimeRectangle="505, 563, 544, 27" ElementType="Text" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl type='' tag='P' class='oxd-text oxd-text--p' matching:class='fuzzy' fuzzylevel:class='0.0' /&gt;" Guid="31e0e0f9-8659-4455-9935-73b41564d735" InformativeScreenshot="393c15f7d3833687b028b9b54e33e60f.jpg" Reference="ac3pmRF8SU6nQXlRVwV-PQ/oXQdFnHTUEeeiscUBhPVrQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='OrangeHRM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target CVScreenId="913a96ef-b3ce-42b0-8190-8d5b2a70139c" CvElementArea="472, 502, 609, 120" CvType="InputBox" DesignTimeRectangle="505, 536, 544, 27" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='oxd-text oxd-text--p' aaname='Username : Admin' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Username : Admin' /&gt;" Guid="7d1af8f7-b1f3-43f2-88aa-43a95ecffc7d" SearchSteps="FuzzySelector, CV" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -248,11 +306,11 @@
                 </OutArgument>
               </uix:NGetText.TextString>
             </uix:NGetText>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="451.2,249.6" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="SameAsCard" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,250" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="SameAsCard" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="opensource-demo.orangehrmlive.com/web/index.php/auth/login" CVScreenId="913a96ef-b3ce-42b0-8190-8d5b2a70139c" ContentHash="O2UWmEnoK0uaLRT_N0nebg" CvElementArea="472, 778, 610, 59" CvType="InputBox" DesignTimeRectangle="474, 781, 606, 56" ElementType="InputBoxPassword" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' class='oxd-input oxd-input--active' placeholder='Password' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="da25bd30-a1cb-4052-ba2b-cf124b195942" InformativeScreenshot="6ebbeb7afd364ef4c48b19e91a6a9fe9.jpg" Reference="ac3pmRF8SU6nQXlRVwV-PQ/tHCcRGpiTESq3R9lCZZVaw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='OrangeHRM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target CVScreenId="913a96ef-b3ce-42b0-8190-8d5b2a70139c" CvTextArea="497, 754, 68, 15" CvTextArgument="Password" CvType="Text" DesignTimeRectangle="499, 753, 67, 20" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' type='' class='oxd-label' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Password' /&gt;" Guid="4b8d33ac-61e5-4727-89bf-ccde981cacbf" SearchSteps="FuzzySelector, CV" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -274,12 +332,12 @@
                 </uix:VerifyExecutionTypeIntoOptions>
               </uix:NTypeInto.VerifyOptions>
             </uix:NTypeInto>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Login(1)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="451.2,197.6" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Login(1)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,198" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="opensource-demo.orangehrmlive.com/web/index.php/auth/login" CVScreenId="913a96ef-b3ce-42b0-8190-8d5b2a70139c" ContentHash="DNefB_XotkOeds0kNTHikw" CvElementArea="472, 873, 610, 63" CvTextArea="752, 895, 46, 20" CvTextArgument="Login" CvType="Button" DesignTimeRectangle="474, 877, 606, 58" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" Guid="a926ed42-e795-4709-9d33-85c793181f5e" InformativeScreenshot="5e8fc7f5bb791144af76485aee0017ef.jpg" Reference="ac3pmRF8SU6nQXlRVwV-PQ/xd7p_kus20O-Q-8waESMqg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='OrangeHRM' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NCheckState DisplayName="Check App State 'Dashboard'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="451.2,791.2" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
+            <uix:NCheckState DisplayName="Check App State 'Dashboard'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="452,792" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="53f2339d-85cf-4ba5-af1d-2e7d20e29c91" Version="V5">
               <uix:NCheckState.IfExists>
                 <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
@@ -302,13 +360,13 @@
                 </Sequence>
               </uix:NCheckState.IfExists>
               <uix:NCheckState.IfNotExists>
-                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="449.6,217.60000000000002" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ra:StepStatus ActualResult="{x:Null}" CodeBlock="{x:Null}" ContinueOnError="{x:Null}" ExpectedResult="{x:Null}" statusInfo="{x:Null}" DisplayName="Step Status" sap:VirtualizedContainerService.HintSize="416,157.6" sap2010:WorkflowViewState.IdRef="StepStatus_2" Status="Fail" StepDescription="login fail" StepName="not login" TakeScreenshot="True">
+                  <ra:StepStatus ActualResult="{x:Null}" CodeBlock="{x:Null}" ContinueOnError="{x:Null}" ExpectedResult="{x:Null}" statusInfo="{x:Null}" DisplayName="Step Status" sap:VirtualizedContainerService.HintSize="416,162" sap2010:WorkflowViewState.IdRef="StepStatus_2" Status="Fail" StepDescription="login fail" StepName="not login" TakeScreenshot="True">
                     <ra:StepStatus.ReportId>
                       <InArgument x:TypeArguments="x:Int32">
                         <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">intReportId</CSharpValue>
